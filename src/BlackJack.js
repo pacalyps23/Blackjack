@@ -96,11 +96,10 @@ class Deck
 
   deal()
   {
-    if(cards.length < 10)
+    if(this.cards.length < 10)
     {
       this.cards = this.generateDeck();
     }
-    this.shuffle();
     return this.cards.pop();
   }
 

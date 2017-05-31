@@ -44,7 +44,6 @@ describe("Test Deck", function ()
   beforeEach(function()
   {
     deck = new Deck();
-    //deckArray = deck.generateDeck();
   });
 
   it("Should create a deck of size 52", function()
@@ -54,7 +53,6 @@ describe("Test Deck", function ()
 
   it("Should generate deck started with 1 Daimond and so on", function()
   {
-      console.log(deck.cards[0]);
       expect(deck.cards[0].getValue()).toBe(1);
       expect(deck.cards[1].getValue()).toBe(2);
   })
@@ -63,14 +61,25 @@ describe("Test Deck", function ()
   {
       card1 = deck.cards[0];
       deck.shuffle();
-      console.log(card1 + " " + deck.cards[0]);
       expect(deck.cards[0]).not.toBe(card1);
   })
 
+  it("should remove cards from the deck", function()
+  {
+      deck.deal();
+      expect(deck.cards.length).toBe(51);
+  })
 
+  it("should remove cards from end of deck", function()
+  {
+      deck.deal();
+      console.log(deck.cards.length);
+      expect(deck.cards[deck.cards.length-1].getValue()).toBe(12);
+      deck.deal();
+      expect(deck.cards[deck.cards.length-1].getValue()).toBe(11);
+  })
+
+  
 });
 
 //describe("Test Hand", function
-{
-
-})
